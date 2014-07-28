@@ -13,8 +13,8 @@ This plugin use the Cordova CLI's plugin command. To install it to your applicat
 cordova plugin add org.apache.cordova.xapkreader --variable MAIN_VERSION=1 --variable PATCH_VERSION=1 --variable FILE_SIZE=1095520
 ```
 
-- `MAIN_VERSION` :  Can be `1` or `0`. Define if your APK expansion file is the main file or a patch.
-- `PATCH_VERSION` :  The version of your expansion file.
+- `MAIN_VERSION` :  The main version of your expansion file.
+- `PATCH_VERSION` :  The patch version of your expansion file.
 - `FILE_SIZE` : The byte size of your expansion file. This is used to verify the intégrity of the file after downloading.
 
 After installation you need to edit `src/org/apache/cordova/xapkreader/XAPKDownloaderService.java` to put your own application public key.
@@ -36,6 +36,13 @@ The file is returned to a success callback as URL object that you can use like i
 ```
 XAPKReader.get(filename, successCallback, [errorCallback], [fileType]);
 ```
+
+You may also access your files by using the content provider.
+
+```
+<img src="content://org.apache.cordova.xapkreader.expansion/photos/image.jpg">
+```
+
 
 ## Parameters
 
